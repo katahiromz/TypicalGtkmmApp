@@ -1,4 +1,4 @@
-# Makefile for 32-bit clang++
+# Makefile for 32-bit Linux clang++
 # Usage: make -f projects/Makefile.clang++32
 ##############################################################################
 
