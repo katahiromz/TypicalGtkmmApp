@@ -1,4 +1,4 @@
-// TypicalGtkmmApp.cpp --- A gtkmm application
+// TypicalGtkmmApp.cpp --- A gtkmm application                  -*- C++ -*-
 //////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"

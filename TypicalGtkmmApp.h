@@ -1,4 +1,4 @@
-// TypicalGtkmmApp.h --- A gtkmm application
+// TypicalGtkmmApp.h --- A gtkmm application                    -*- C++ -*-
 //////////////////////////////////////////////////////////////////////////////
 
 #ifndef TYPICALGTKMMAPP_H_

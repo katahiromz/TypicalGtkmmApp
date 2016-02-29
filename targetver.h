@@ -1,4 +1,4 @@
-// targetver.h --- target versioning header for Windows
+// targetver.h --- target versioning header for Windows         -*- C++ -*-
 //////////////////////////////////////////////////////////////////////////////
 
 // targetver.h is used to define the Windows API macros that target the 

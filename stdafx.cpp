@@ -1,4 +1,4 @@
-// stdafx.cpp --- precompiled header
+// stdafx.cpp --- precompiled header                            -*- C++ -*-
 //////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"

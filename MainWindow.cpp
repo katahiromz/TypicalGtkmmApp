@@ -1,4 +1,4 @@
-// MainWindow.cpp --- main window
+// MainWindow.cpp --- main window                               -*- C++ -*-
 //////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"

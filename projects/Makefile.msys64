@@ -1,4 +1,4 @@
-# Makefile for 64-bit MSYS
+# Makefile for 64-bit MSYS                                  -*- Makefile -*-
 # Usage: make -f projects/Makefile.msys64
 ##############################################################################
 

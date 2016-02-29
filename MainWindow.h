@@ -1,4 +1,4 @@
-// MainWindow.h --- main window
+// MainWindow.h --- main window                                 -*- C++ -*-
 //////////////////////////////////////////////////////////////////////////////
 
 #ifndef TYPICALGTKMMAPP_MAINWINDOW_H_
