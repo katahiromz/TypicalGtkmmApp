@@ -1,0 +1,76 @@
+# Makefile for 32-bit MinGW
+# Usage: make -f projects/Makefile.mingw32
+##############################################################################
+
+DOTEXE = .exe
+DOTOBJ = .o
+
+DEF1 = -O3 -DNDEBUG
+#DEF1 = -g -ggdb -D_DEBUG
+
+DEF2 = -DMBCS -D_MBCS
+#DEF2 = -municode -DUNICODE -D_UNICODE
+#DEF2 = -DANSI -D_ANSI
+
+DEF3 = `pkg-config gtkmm-2.4 --cflags`
+
+CXX = g++
+CXXFLAGS = -m32 -std=c++11 -pedantic -Wall $(DEF1) $(DEF2) $(DEF3)
+
+RC = windres
+
+RCFLAGS = -F pe-i386            # x86
+#RCFLAGS = -F pe-x86-64         # x64
+
+##############################################################################
+
+PROGRAM = TypicalGtkmmApp$(DOTEXE)
+
+OBJS = \
+	TypicalGtkmmApp$(DOTOBJ) \
+	MainWindow$(DOTOBJ) \
+	TypicalGtkmmApp_res$(DOTOBJ) \
+
+LIBS = `pkg-config gtkmm-2.4 --libs`
+
+COMMON_HEADERS = \
+	stdafx.h \
+	config.h \
+	TypicalGtkmmApp.h \
+
+PRECOMPILED_HEADER = stdafx.h.gch
+
+GOALS = $(PROGRAM)
+
+##############################################################################
+
+all: $(GOALS)
+
+$(PROGRAM): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(PROGRAM) $(OBJS) $(LIBS)
+
+TypicalGtkmmApp$(DOTOBJ): $(PRECOMPILED_HEADER) TypicalGtkmmApp.cpp
+	$(CXX) $(CXXFLAGS) -c TypicalGtkmmApp.cpp
+MainWindow$(DOTOBJ): $(PRECOMPILED_HEADER) MainWindow.cpp
+	$(CXX) $(CXXFLAGS) -c MainWindow.cpp
+
+TypicalGtkmmApp_res$(DOTOBJ): config.h TypicalGtkmmApp_res.rc
+	$(RC) $(RCFLAGS) -i TypicalGtkmmApp_res.rc -o TypicalGtkmmApp_res$(DOTOBJ)
+
+$(PRECOMPILED_HEADER): $(COMMON_HEADERS)
+	$(CXX) -c $(CXXFLAGS) -o $(PRECOMPILED_HEADER) stdafx.h
+
+clean:
+	rm -f *.o
+	rm -f *.obj
+	rm -f *.res
+	rm -f *.tds
+	rm -f *.map
+	rm -f *.sdf
+	rm -f *.suo
+	rm -f *.opensdf
+	rm -f *.user
+	rm -f *.filters
+	rm -f $(PRECOMPILED_HEADER)
+
+##############################################################################
