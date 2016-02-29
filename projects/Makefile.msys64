@@ -1,5 +1,5 @@
-# Makefile for 32-bit MinGW
-# Usage: make -f projects/Makefile.mingw32
+# Makefile for 64-bit MSYS
+# Usage: make -f projects/Makefile.msys64
 ##############################################################################
 
 DOTEXE = .exe
@@ -15,12 +15,12 @@ DEF2 = -DMBCS -D_MBCS
 DEF3 = `pkg-config gtkmm-2.4 --cflags`
 
 CXX = g++
-CXXFLAGS = -m32 -std=c++11 -pedantic -Wall $(DEF1) $(DEF2) $(DEF3)
+CXXFLAGS = -m64 -std=c++11 -pedantic -Wall $(DEF1) $(DEF2) $(DEF3)
 
 RC = windres
 
-RCFLAGS = -F pe-i386            # x86
-#RCFLAGS = -F pe-x86-64         # x64
+#RCFLAGS = -F pe-i386           # x86
+RCFLAGS = -F pe-x86-64          # x64
 
 ##############################################################################
 
