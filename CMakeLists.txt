@@ -42,8 +42,11 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 # gtkmm-related
-include(FindPkgConfig)
-find_package(GTK2 2.4 REQUIRED gtkmm)
+cmake_policy(SET CMP0011 NEW)
+cmake_policy(PUSH)
+    include(FindPkgConfig)
+    find_package(GTK2 2.4 REQUIRED gtkmm)
+cmake_policy(POP)
 pkg_check_modules(GTKMM REQUIRED gtkmm-2.4)
 include_directories(${GTKMM_INCLUDE_DIRS})
 link_directories(${GTKMM_LIBRARY_DIRS})
